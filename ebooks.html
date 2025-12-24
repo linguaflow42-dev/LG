@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport"content="width=device-width,initial-scale=1">
+  <title>Ebooks — LingoPlay</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div class="brand">
+        <img src="images/logo.png" alt="LingoPlay" class="logo">
+        <div><h1>LingoPlay — Ebooks</h1><div class="small">Produtos pagos e gratuitos</div></div>
+      </div>
+      <nav class="nav">
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="conteudo.html">Conteúdo</a>
+        <a class="btn" href="tradutor.html">Tradutor</a>
+        <a class="btn"href="jogos.html">jogos</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 class="section-title">Catálogo de Ebooks</h2>
+        <p class="small">Ebooks premium e gratuitos para aprender inglês, francês e ganhar renda extra.</p>
+
+        <div class="card-grid" style="margin-top:12px">
+          <article id="ebook-fin" class="card">
+            <img src="images/ebook1-cover.jpg" alt="Finanças" class="cover">
+            <div class="info">
+              <h3>Como Organizar Suas Finanças em 30 Dias</h3>
+              <p class="small">Guia prático com checklist, planilha e plano diário.</p>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center;justify-content:space-between">
+                <div>
+                  <div class="price">R$27</div>
+                  <div class="small">Entrega via Hotmart</div>
+                </div>
+                <div>
+                  
+                  <a onclick="chama('Ebook Como organizar suas finanças em 30 dias','https://www.hot.com','#ki','#ko')" class="primary" href="#LINK_HOTMART_EBOOK1">Comprar</a>
+                  
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="ebook-pron" class="card">
+            <img src="images/ebook2-cover.jpg" alt="Pronúncia" class="cover">
+            <div class="info">
+              <h3>Domine a Pronúncia & Monte Frases — LingoPlay</h3>
+              <p class="small">Ebook 60–80p focado em pronúncia e formação de frases com QR codes para áudios.</p>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center;justify-content:space-between">
+                <div>
+                  <div class="price">R$39</div>
+                  <div class="small">Inclui bônus de 200 frases</div>
+                </div>
+                <div>
+                  <a class="primary" href="#LINK_HOTMART_EBOOK2">Comprar</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <h3 style="margin-top:18px">Ebooks Grátis</h3>
+        <div class="card-grid" style="margin-top:8px">
+          <article id="ze" class="card">
+            <img src="images/file_00000000a24471fdb24bb076d48abc5d.png" alt="Gratis" class="cover">
+            <div class="info">
+              <h3>Inglês do zero para iniciantes</h3>
+              <p class="small">Baixe grátis e pratique hoje mesmo.</p>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center;justify-content:space-between">
+                <div class="small">Download imediato</div>
+                <div><a class="primary" href="ebooks/Aprenda-Ingles-do-Zero-O-Guia-Completo-da-LinguaFlow.pdf" target="_blank">Baixar</a></div>
+              </div>
+            </div>
+          </article>
+          <!--############-->
+               
+        <div class="card-grid" style="margin-top:8px">
+          <article class="card">
+            <img src="images/mont.jpg" alt="Gratis" class="cover">
+            <div class="info">
+              <h3>Domine a pronúncia e monte frases em inglês</h3>
+              <p class="small">Baixe grátis e pratique hoje mesmo.</p>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center;justify-content:space-between">
+                <div class="small">Download imediato</div>
+                <div><a class="primary" href="ebooks/Domine-a-Pronuncia-e-Monte-Suas-Frases-em-Ingles(2).pdf" target="_blank">Baixar</a></div>
+              </div>
+            </div>
+          </article>
+          <!--############-->
+
+          <article class="card">
+            <img src="images/franc_z.png" alt="Gratis2" class="cover">
+            <div class="info">
+              <h3>Francês do zero para iniciantes</h3>
+              <p class="small">Baixe grátis e pratique hoje mesmo.</p>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center;justify-content:space-between">
+                <div class="small">Download imediato</div>
+                <div><a class="primary" href="ebooks/Frances-do-Zero-Guia-Pratico-para-Iniciantes.pdf" target="_blank">Baixar</a></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div><strong>LingoPlay</strong><div class="small">Ebooks & Recursos</div></div>
+      <div><a href="mailto:contato@lingoplay.com">contato@lingoplay.com</a></div>
+    </footer>
+  </div>
+  <section onclick="fecha(event)" id="modal">
+    <section  class="modal">
+      <h1 id="h1">Escolhe a moeda para:</h1>
+      <button><a id="n1" href="">Reais(Hotmart)</a></button>
+      <button><a id="n2" href="">Euros(Kiwify)</a></button>
+      <button><a id="n3" href="">Kwanza(Kambafy)</a></button>
+      <button onclick="fecha()" id="cace">Cancela</button>
+    </section>
+    
+  </section>
+  <script>
+    function chama(n,n1,n2,n3){
+      document.getElementById("modal").style.display = "flex"
+      document.getElementById("h1").innerText += n
+      //muda link
+      document.getElementById("n1").href = n1;
+      document.getElementById("n2").href = n2;
+      document.getElementById("n3").href = n3;
+    }
+    
+    function fecha(e){
+      if(!e || e.target.id === "modal"){
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("h1").innerText = "Escolhe a moeda para:"
+  }
+    }
+    
+    function fech(){
+      document.getElementById("modal").style.display = "none"
+    }
+  </script>
+</body>
+</html>

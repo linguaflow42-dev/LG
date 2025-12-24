@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jogos — LingoPlay</title>
+<!--Depois move para o mesmo arquivo de estilo-->
+<link rel="stylesheet" href="assets/stylejg.css">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">
+    <img class="logo" src="images/logo.png" alt="LingoPlay logo" onerror="this.style.display='none'">
+    <div>
+      <h1>Jogos — LingoPlay</h1>
+      <div class="small">Aprenda Inglês & Français</div>
+    </div>
+  </div>
+
+  <nav class="nav" role="navigation" aria-label="menu principal">
+    <a class="btn" href="index.html">Home</a>
+    <a class="btn" href="ebooks.html">Ebooks</a>
+    <a class="btn" href="conteudo.html">Conteúdo</a>
+    <a class="btn" href="tradutor.html">Tradutor</a>
+  </nav>
+</header>
+
+<main class="container" role="main">
+  <h2 class="page-title">Jogos — Pratique e Divirta-se</h2>
+
+  <!-- Cards -->
+  <section class="cards" aria-label="lista de jogos">
+    <article class="card" id="card-fill">
+      <div>
+        <h3>Complete a Frase</h3>
+        <p class="small">Escolha a palavra certa para completar frases. Prático para gramática e formação de frases.</p>
+      </div>
+      <div>
+        <div class="progress-row small">
+          <div>Progresso</div>
+          <div class="progress-bar" aria-hidden="true"><div id="fill-progress" class="progress-fill"></div></div>
+          <div id="fill-score" class="small">0 pts</div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" onclick= ><a href="Jogos/completa-frase-en.html">Jogar</a></button>
+          <button class="btn btn-ghost" onclick="resetcf()">Reiniciar</button>
+        </div>
+      </div>
+    </article>
+<!--Monta frase-->
+    <article class="card" id="card-montar">
+      <div>
+        <h3>Monte a Frase</h3>
+        <p class="small">Arraste/Toque nas palavras na ordem correta para formar frases completas.</p>
+      </div>
+      <div>
+        <div class="progress-row small">
+          <div>Progresso</div>
+          <div class="progress-bar" aria-hidden="true"><div id="montar-progress" class="progress-fill"></div></div>
+          <div id="montar-score" class="small">0 pts</div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="montar()"><a href="Jogos/monta-frase-en.html">Jogar</a></button>
+          <button class="btn btn-ghost" onclick="resetmt()">Reiniciar</button>
+        </div>
+      </div>
+    </article>
+<!--Quiz Francês -->
+    <article class="card" id="card-montar">
+      <div>
+        <h3>Quiz francês</h3>
+        <p class="small">Perguntas e respostas sobre francês.</p>
+      </div>
+      <div>
+        <div class="progress-row small">
+          <div>Progresso</div>
+          <div class="progress-bar" aria-hidden="true"><div id="quiz-progress" class="progress-fill"></div></div>
+          <div id="quiz-score" class="small">0 pts</div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="montar()"><a href="Jogos/quiz-frances.html">Jogar</a></button>
+          <button class="btn btn-ghost" onclick="resetqz()">Reiniciar</button>
+        </div>
+      </div>
+    </article>
+
+<!--######### -->
+<!--Quiz Inglês -->
+    <article class="card" id="card-montar">
+      <div>
+        <h3>Quiz inglês</h3>
+        <p class="small">Perguntas e respostas sobre inglês.</p>
+      </div>
+      <div>
+        <div class="progress-row small">
+          <div>Progresso</div>
+          <div class="progress-bar" aria-hidden="true"><div id="en-progress" class="progress-fill"></div></div>
+          <div id="en-score" class="small">0 pts</div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" onclick=""><a href="Jogos/quiz-en.html">Jogar</a></button>
+          <button class="btn btn-ghost" onclick="reseten()">Reiniciar</button>
+        </div>
+      </div>
+    </article>
+    <!--######################-->
+    <!-- Artigos em francês -->
+    <article class="card" id="card-montar">
+      <div>
+        <h3>Artigos francês</h3>
+        <p class="small">Aprenda de forma divertida sobre artigos definidos e indefinidos em francês.</p>
+      </div>
+      <div>
+        <div class="progress-row small">
+          <div>Progresso</div>
+          <div class="progress-bar" aria-hidden="true"><div id="at-progress" class="progress-fill"></div></div>
+          <div id="at-score" class="small">0 pts</div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" onclick=""><a href="Jogos/artigos_fr.html">Jogar</a></button>
+          <button class="btn btn-ghost" onclick="resetat()">Reiniciar</button>
+        </div>
+      </div>
+    </article>
+    <!--#################-->
+
+  
+
+  <div class="footer">Pontuações são salvas localmente no seu navegador. Boa sorte e divirta-se! 🎯</div>
+</main>
+
+<footer class="footere">
+    <div>
+        <div class="tagline">LingoPlay</div>
+        <div class="small">Aprende inglês e francês jogando.</div>
+    </div>
+    <div>
+      <div class="small">Contato: <a href="mailto:contato@lingoplay.com">contato@lingoplay.com</a></div>
+      <div class="small">© LingoPlay — Todos os direitos</div>
+    </div>
+  </footer>
+
+<script>
+//Jogos
+//Completa Frase
+var p = localStorage.getItem("lf_fill_score")
+
+  let porcentagem = Math.min(100, (p/ 300) * 100);
+document.getElementById('fill-progress').style.width = porcentagem + "%";
+document.getElementById("fill-score").innerText = p + " pts"
+
+function resetcf (){
+  localStorage.setItem("lf_fill_score",0)
+  document.getElementById("fill-score").innerText = "0 pts"
+  document.getElementById("fill-progress").style.width = 0 +"%";
+}
+//###############################
+//Monte a frase
+  var pe = localStorage.getItem("lf_montar_best")
+  let proc = Math.min(100,(pe/100)*100);
+  document.getElementById("montar-progress").style.width = proc + "%";
+  document.getElementById("montar-score").innerText = pe + " pts";
+  
+  function resetmt(){
+    localStorage.setItem("lf_montar_best","0");
+    localStorage.setItem("lf_montar_score","0");
+    document.getElementById("montar-score").innerText = "0 pts";
+    document.getElementById("montar-progress").style.width = "0" + "%";
+  };
+  //###########################
+  //Quiz Frances 
+  var q = JSON.parse(localStorage.getItem("lf_quiz_fr"))["best"];
+  
+    let proq = Math.min(100,(q/300)*100);
+  document.getElementById("quiz-progress").style.width = proq+ "%";
+  document.getElementById("quiz-score").innerText = q + " pts";
+  function resetqz(){
+    localStorage.setItem('lf_quiz_fr','{"best":0,"last":0}');
+    document.getElementById("quiz-score").innerText = "0 pts";
+    document.getElementById("quiz-progress").style.width = "0" + "%";
+  }
+  //############################
+  //Quiz Inglês 
+  var en = localStorage.getItem("lf_quiz_en_best")
+  
+    let proen = Math.min(100,(en/300)*100);
+  document.getElementById("en-progress").style.width = proen+ "%";
+  document.getElementById("en-score").innerText = en + " pts";
+  function reseten(){
+    localStorage.setItem('lf_quiz_en_best',0);
+    localStorage.setItem("lf_quiz_en_score",0)
+    document.getElementById("en-score").innerText = "0 pts";
+    document.getElementById("en-progress").style.width = "0" + "%";
+  }
+  //##############################
+  //Artigos francês 
+  var at = JSON.parse(localStorage.getItem("lf_artigos"))["best"];
+  
+    let proat = Math.min(100,(at/300)*100);
+  document.getElementById("at-progress").style.width = proat+ "%";
+  document.getElementById("at-score").innerText = at + " pts";
+  function resetat(){
+    localStorage.setItem('lf_artigos','{"best":0,"last":0}');
+    document.getElementById("at-score").innerText = "0 pts";
+    document.getElementById("at-progress").style.width = "0" + "%";
+  }
+  
+</script>
+
+</body>
+</html>
